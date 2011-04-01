@@ -1,0 +1,53 @@
+= Postmark Mitt
+
+(This is only a prototype at the moment, it hasn't been built as a real gem yet. There are no tests.)
+
+This gem provides a little wrapper object for taking JSON from Postmark's incoming email system and composing it back into an object resembling an email. This comes in handy when you are trying to figure out what to do with the email.
+
+== Install
+
+    gem install postmark-mitt
+
+== Example
+
+    require 'lib/postmark_mitt'
+
+    # if you are just playing with this library
+    email = Postmark::Mitt.new(File.read("path/to/json/file/in/spec/fixtures"))
+
+    # if you are doing this in a controller
+    email = Postmark::Mitt.new(request.body.read)
+
+    email.to # "api-hash@inbound.postmarkapp.com"
+    email.from # Bob Bobson <bob@bob.com>
+    email.from_email # bob@bob.com
+    email.text_body
+    email.html_body
+    email.headers # returns a hash of the headers
+
+    email.attachments # array of attachment objects
+
+    attachment = email.attachments.first
+    attachment.file_name
+    attachment.content_type
+    attachment.read # will base64 decode the content... eventually this will lazy-load the file from Postmark
+    attachment.size # NYI
+    # You get the idea
+
+== Note on Patches/Pull Requests
+
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+* Send me a pull request. Bonus points for topic branches.
+
+== Authors & Contributors
+
+* Randy Schmidt
+
+== Copyright
+
+Copyright (c) 2011 Randy Schmidt. See LICENSE for details.
+
