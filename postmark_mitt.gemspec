@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Randy Schmidt"]
   s.email       = ["randy@forge38.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/r38y/postmark-mitt"
   s.rubyforge_project = "postmark-mitt"
   s.summary     = %q{PROTOTYPE Mitt for incoming email through Postmark}
   s.description = %q{(Prototype) This gem will help you take JSON posted to your app from incoming email through Postmark. It will turn it back into an object with methods to help inspect the contents of the email}
