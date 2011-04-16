@@ -53,6 +53,10 @@ describe Postmark::Mitt do
     mitt.message_id.should == "a8c1040e-db1c-4e18-ac79-bc5f64c7ce2c"
   end
 
+  it "should have headers" do
+    mitt.headers["Date"].should =="Thu, 31 Mar 2011 12:01:17 -0400"
+  end
+
   it "should have an attachment" do
     mitt.attachments.size.should == 1
   end
