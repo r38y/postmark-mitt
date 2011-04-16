@@ -1,4 +1,8 @@
 source "http://rubygems.org"
 
-# Specify your gem's dependencies in postmark_mitt.gemspec
 gemspec
+
+group :development do
+  gem "rspec", "~> 2.3.0"
+end
+

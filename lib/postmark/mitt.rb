@@ -4,7 +4,7 @@ module Postmark
 
     def initialize(json)
       @raw = json
-      @source = JSON.parse(json)
+      @source = MultiJson.decode(json)
     end
 
     attr_reader :raw, :source
@@ -18,7 +18,7 @@ module Postmark
     end
 
     def from
-      source["From"].gsub('"')
+      source["From"].gsub('"', '')
     end
 
     def from_email
@@ -91,7 +91,7 @@ module Postmark
       end
 
       def read
-        Base64.decode(source["Content"])
+        Base64.decode64(source["Content"])
       end
 
       def size

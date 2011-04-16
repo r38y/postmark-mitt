@@ -6,8 +6,8 @@
       "Name": "chart.png"
     }
   ],
-  "Bcc": "",
-  "Cc": "",
+  "Bcc": "FBI <hi@fbi.com>",
+  "Cc": "Your Mom <hithere@hotmail.com>",
   "From": "\"Bob Bobson\" <bob@bob.com>",
   "Headers": [
     {
@@ -43,12 +43,12 @@
       "Value": "multipart\/mixed"
     }
   ],
-  "HtmlBody": "",
-  "MailboxHash": "",
+  "HtmlBody": "<p>We no speak americano</p>",
+  "MailboxHash": "moitoken",
   "MessageID": "a8c1040e-db1c-4e18-ac79-bc5f64c7ce2c",
-  "ReplyTo": "",
+  "ReplyTo": "new-comment+sometoken@yeah.com",
   "Subject": "Hi There",
-  "Tag": "",
+  "Tag": "yourit",
   "TextBody": "\nThis is awesome!\n\n",
   "To": "api-hash@inbound.postmarkapp.com"
 }
