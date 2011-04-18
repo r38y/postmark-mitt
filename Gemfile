@@ -1,5 +1,6 @@
 source "http://rubygems.org"
 
+gem "json_pure"
 gem "multi_json"
 
 group :development do
