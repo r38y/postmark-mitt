@@ -1,7 +1,5 @@
 module Postmark
   class Mitt
-    VERSION = "0.0.1"
-
     def initialize(json)
       @raw = json
       @source = MultiJson.decode(json)
