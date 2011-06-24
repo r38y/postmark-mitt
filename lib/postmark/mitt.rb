@@ -101,7 +101,9 @@ module Postmark
       end
 
       def read
-        Base64.decode64(source["Content"])
+        tempfile = MittTempfile.new(file_name, content_type)
+        tempfile.write(Base64.decode64(source["Content"]))
+        tempfile
       end
 
       def size
@@ -121,6 +123,21 @@ module Postmark
       def smallest
         sorted.first
       end
+    end
+  end
+
+  class MittTempfile < Tempfile
+    def initialize(basename, content_type, tmpdir=Dir::tmpdir)
+      super(basename, tmpdir)
+      @basename = basename
+      @content_type = content_type
+    end
+
+    # The content type of the "uploaded" file
+    attr_accessor :content_type
+
+    def original_filename
+      @basename || File.basename(path)
     end
   end
 end

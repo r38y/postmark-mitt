@@ -105,8 +105,18 @@ describe Postmark::Mitt do
       attachment.file_name.should == 'chart.png'
     end
 
-    it "should read the content" do
-      attachment.read.should_not be_empty
+    describe "read" do
+      it "should read the content" do
+        attachment.read.class.name.should == "Postmark::MittTempfile"
+      end
+
+      it "should have a content_type" do
+        attachment.read.content_type.should == 'image/png'
+      end
+
+      it "should have a original_filename" do
+        attachment.read.original_filename.should == 'chart.png'
+      end
     end
 
     it "should have a size" do
