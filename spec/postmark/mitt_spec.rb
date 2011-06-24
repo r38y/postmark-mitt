@@ -76,6 +76,22 @@ describe Postmark::Mitt do
     mitt.should_not have_attachments
   end
 
+  describe "#attachments.largest" do
+    it "should return the attachment with the largest content length" do
+      largest = mitt.attachments.largest
+      largest.file_name.should == "chart.png"
+      largest.size.should == 2000
+    end
+  end
+
+  describe "#attachments.smallest" do
+    it "should return the attachment with the smallest content length" do
+      smallest = mitt.attachments.smallest
+      smallest.file_name.should == "chart2.png"
+      smallest.size.should == 1000
+    end
+  end
+
   describe Postmark::Mitt::Attachment do
     let(:attachment) do
       mitt.attachments.first

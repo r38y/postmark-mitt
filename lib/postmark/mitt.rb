@@ -78,7 +78,7 @@ module Postmark
     def attachments
       @attachments ||= begin
         raw_attachments = source["Attachments"] || []
-        raw_attachments.map{|a| Attachment.new(a)}
+        AttachmentsArray.new(raw_attachments.map{|a| Attachment.new(a)})
       end
     end
 
@@ -106,6 +106,20 @@ module Postmark
 
       def size
         source["ContentLength"]
+      end
+    end
+
+    class AttachmentsArray < Array
+      def sorted
+        @sorted ||= self.sort{|x,y|x.size <=> y.size}
+      end
+
+      def largest
+        sorted.last
+      end
+
+      def smallest
+        sorted.first
       end
     end
   end
