@@ -29,6 +29,10 @@ describe Postmark::Mitt do
     mitt.from_email.should == "bob@bob.com"
   end
 
+  it "should pull out the from_name" do
+    mitt.from_name.should == "Bob Bobson"
+  end
+
   it "should have a bcc" do
     mitt.bcc.should == "FBI <hi@fbi.com>"
   end
@@ -58,11 +62,18 @@ describe Postmark::Mitt do
   end
 
   it "should have an attachment" do
-    mitt.attachments.size.should == 1
+    mitt.attachments.size.should == 2
   end
 
   it "should have attachment objects" do
     mitt.attachments.first.class.name.should == 'Postmark::Mitt::Attachment'
+  end
+
+  it "should know if it has attachments" do
+    mitt.attachments.should_not be_empty
+    mitt.should have_attachments
+    mitt.stub!(:attachments).and_return([])
+    mitt.should_not have_attachments
   end
 
   describe Postmark::Mitt::Attachment do
@@ -83,7 +94,7 @@ describe Postmark::Mitt do
     end
 
     it "should have a size" do
-      attachment.size.should == "NYI"
+      attachment.size.should == 2000
     end
   end
 end

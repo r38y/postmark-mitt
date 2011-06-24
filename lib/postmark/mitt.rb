@@ -21,9 +21,17 @@ module Postmark
 
     def from_email
       if match = from.match(/^.+<(.+)>$/)
-        match[1]
+        match[1].strip
       else
-        from_email
+        from
+      end
+    end
+
+    def from_name
+      if match = from.match(/(^.+)<.+>$/)
+        match[1].strip
+      else
+        from
       end
     end
 
@@ -74,6 +82,10 @@ module Postmark
       end
     end
 
+    def has_attachments?
+      !attachments.empty?
+    end
+
     class Attachment
       def initialize(attachment_source)
         @source = attachment_source
@@ -93,7 +105,7 @@ module Postmark
       end
 
       def size
-        "NYI"
+        source["ContentLength"]
       end
     end
   end
