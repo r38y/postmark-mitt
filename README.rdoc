@@ -1,7 +1,5 @@
 = Postmark Mitt
 
-(This is only a prototype at the moment, it hasn't been built as a real gem yet. There are no tests.)
-
 This gem provides a little wrapper object for taking JSON from Postmark's incoming email system and composing it back into an object resembling an email. This comes in handy when you are trying to figure out what to do with the email.
 
 == Install
