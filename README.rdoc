@@ -2,6 +2,8 @@
 
 This gem provides a little wrapper object for taking JSON from Postmark's incoming email system and composing it back into an object resembling an email. This comes in handy when you are trying to figure out what to do with the email.
 
+Postmark-mitt has been verified to work on Ruby Enterprise Edition 1.8.7, 1.9.2 and 1.9.3.
+
 == Install
 
     gem install postmark-mitt
