@@ -37,8 +37,24 @@ describe Postmark::Mitt do
     mitt.bcc.should == "FBI <hi@fbi.com>"
   end
 
+  it "should pull out the bcc_email" do
+    mitt.bcc_email.should == "hi@fbi.com"
+  end
+
+  it "should pull out the bcc_name" do
+    mitt.bcc_name.should == "FBI"
+  end
+
   it "should have a cc" do
     mitt.cc.should == "Your Mom <hithere@hotmail.com>"
+  end
+
+  it "should pull out the cc_email" do
+    mitt.cc_email.should == "hithere@hotmail.com"
+  end
+
+  it "should pull out the cc_name" do
+    mitt.cc_name.should == "Your Mom"
   end
 
   it "should have a reply_to" do

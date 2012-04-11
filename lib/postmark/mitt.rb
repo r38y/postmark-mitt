@@ -35,8 +35,24 @@ module Postmark
       source["Bcc"]
     end
 
+    def bcc_email
+      source["BccFull"]["Email"] || bcc
+    end
+
+    def bcc_name
+      source["BccFull"]["Name"] || bcc
+    end
+
     def cc
       source["Cc"]
+    end
+
+    def cc_email
+      source["CcFull"]["Email"] || cc
+    end
+
+    def cc_name
+      source["CcFull"]["Name"] || cc
     end
 
     def reply_to
