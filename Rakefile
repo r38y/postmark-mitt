@@ -19,7 +19,6 @@ Jeweler::Tasks.new do |gem|
   gem.description = %q{This gem will help you take JSON posted to your app from incoming email through Postmark. It will turn it back into an object with methods to help inspect the contents of the email}
   gem.email = "randy@forge38.com"
   gem.authors = ["Randy Schmidt"]
-  gem.add_dependency "multi_json"
 end
 Jeweler::RubygemsDotOrgTasks.new
 
@@ -36,7 +35,7 @@ end
 
 task :default => :spec
 
-require 'rake/rdoctask'
+require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
