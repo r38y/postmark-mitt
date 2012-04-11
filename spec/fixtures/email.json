@@ -14,8 +14,20 @@
     }
   ],
   "Bcc": "FBI <hi@fbi.com>",
+  "BccFull": {
+    "Email": "hi@fbi.com",
+    "Name": "FBI"
+  },
   "Cc": "Your Mom <hithere@hotmail.com>",
+  "CcFull": {
+    "Email": "hithere@hotmail.com",
+    "Name": "Your Mom"
+  },
   "From": "\"Bob Bobson\" <bob@bob.com>",
+  "FromFull": {
+    "Email": "bob@bob.com",
+    "Name": "Bob Bobson"
+  },
   "Headers": [
     {
       "Name": "Received-SPF",
