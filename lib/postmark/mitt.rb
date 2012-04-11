@@ -20,19 +20,11 @@ module Postmark
     end
 
     def from_email
-      if match = from.match(/^.+<(.+)>$/)
-        match[1].strip
-      else
-        from
-      end
+      source["FromFull"]["Email"] || from
     end
 
     def from_name
-      if match = from.match(/(^.+)<.+>$/)
-        match[1].strip
-      else
-        from
-      end
+      source["FromFull"]["Name"] || from
     end
 
     def to
