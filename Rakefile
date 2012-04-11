@@ -15,8 +15,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "postmark-mitt"
   gem.homepage = "http://github.com/r38y/postmark-mitt"
   gem.license = "MIT"
-  gem.summary     = %q{PROTOTYPE Mitt for incoming email through Postmark}
-  gem.description = %q{(Prototype) This gem will help you take JSON posted to your app from incoming email through Postmark. It will turn it back into an object with methods to help inspect the contents of the email}
+  gem.summary     = %q{Mitt for incoming email through Postmark}
+  gem.description = %q{This gem will help you take JSON posted to your app from incoming email through Postmark. It will turn it back into an object with methods to help inspect the contents of the email}
   gem.email = "randy@forge38.com"
   gem.authors = ["Randy Schmidt"]
   gem.add_dependency "multi_json"
