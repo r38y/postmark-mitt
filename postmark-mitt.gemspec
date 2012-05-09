@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "postmark-mitt"
-  s.version = "0.0.8"
+  s.version = "0.0.9"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Randy Schmidt"]
-  s.date = "2012-04-11"
+  s.date = "2012-05-09"
   s.description = "This gem will help you take JSON posted to your app from incoming email through Postmark. It will turn it back into an object with methods to help inspect the contents of the email"
   s.email = "randy@forge38.com"
   s.extra_rdoc_files = [
@@ -33,7 +33,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/r38y/postmark-mitt"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.15"
+  s.rubygems_version = "1.8.23"
   s.summary = "Mitt for incoming email through Postmark"
 
   if s.respond_to? :specification_version then
