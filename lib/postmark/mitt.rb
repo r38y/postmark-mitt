@@ -136,7 +136,7 @@ module Postmark
 
   class MittTempfile < Tempfile
     def initialize(basename, content_type, tmpdir=Dir::tmpdir)
-      super(basename, tmpdir)
+      super(basename, tmpdir, :encoding => 'ascii-8bit')
       @basename = basename
       @content_type = content_type
     end
