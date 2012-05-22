@@ -136,16 +136,24 @@ module Postmark
 
   class MittTempfile < Tempfile
     def initialize(basename, content_type, tmpdir=Dir::tmpdir)
-      super(basename, tmpdir, :encoding => 'ascii-8bit')
+      if Postmark.ruby19?
+        super(basename, tmpdir, :encoding => 'ascii-8bit')
+      else
+        super(basename, tmpdir)
+      end
       @basename = basename
       @content_type = content_type
     end
 
-    # The content type of the "uploaded" file
+    # the content type of the "uploaded" file
     attr_accessor :content_type
 
     def original_filename
-      @basename || File.basename(path)
+      @basename || file.basename(path)
     end
+  end
+
+  def self.ruby19?
+    RUBY_VERSION > "1.9"
   end
 end
