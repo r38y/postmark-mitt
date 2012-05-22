@@ -30,6 +30,15 @@ module Postmark
     def to
       source["To"]
     end
+    
+    def to_email
+      source["ToFull"]["Email"] || to
+    end
+
+    def to_name
+      source["ToFull"]["Name"] || to
+    end
+    
 
     def bcc
       source["Bcc"]
