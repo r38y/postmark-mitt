@@ -69,5 +69,11 @@
   "Subject": "Hi There",
   "Tag": "yourit",
   "TextBody": "\nThis is awesome!\n\n",
-  "To": "api-hash@inbound.postmarkapp.com"
+  "To": "\"Api Hash\" <api-hash@inbound.postmarkapp.com>",
+	"ToFull": [
+		{
+			"Email": "api-hash@inbound.postmarkapp.com",
+			"Name": "Api Hash"
+		}
+	]
 }

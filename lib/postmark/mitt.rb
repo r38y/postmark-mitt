@@ -28,8 +28,21 @@ module Postmark
     end
 
     def to
-      source["To"]
+      source["To"].gsub('"', '')
     end
+    
+    def to_full
+      source["ToFull"] || []
+    end
+    
+    def to_email
+      to_full.any? ? to_full.first["Email"] : to
+    end
+
+    def to_name
+      to_full.any? ? to_full.first["Name"] : to
+    end
+    
 
     def bcc
       source["Bcc"]
