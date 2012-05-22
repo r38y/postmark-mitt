@@ -18,8 +18,17 @@ describe Postmark::Mitt do
   end
 
   it "should be to someone" do
-    mitt.to.should == "api-hash@inbound.postmarkapp.com"
+    mitt.to.should == "Api Hash <api-hash@inbound.postmarkapp.com>"
   end
+  
+  it "should pull out the to_name" do
+    mitt.to_name.should == "Api Hash"
+  end
+  
+  it "should pull out the to_email" do
+    mitt.to_email.should == "api-hash@inbound.postmarkapp.com"
+  end
+  
 
   it "should be from someone" do
     mitt.from.should == "Bob Bobson <bob@bob.com>"
