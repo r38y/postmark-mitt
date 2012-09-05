@@ -10,7 +10,7 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 SPEC_ROOT = Pathname.new(File.dirname(__FILE__))
 
 def read_fixture(file='email.json')
-  File.read(File.join(SPEC_ROOT, 'fixtures', 'email.json'))
+  File.read(File.join(SPEC_ROOT, 'fixtures', file))
 end
 
 RSpec.configure do |config|

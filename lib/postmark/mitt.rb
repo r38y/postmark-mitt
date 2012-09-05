@@ -30,11 +30,11 @@ module Postmark
     def to
       source["To"].gsub('"', '')
     end
-    
+
     def to_full
       source["ToFull"] || []
     end
-    
+
     def to_email
       to_full.any? ? to_full.first["Email"] : to
     end
@@ -42,7 +42,7 @@ module Postmark
     def to_name
       to_full.any? ? to_full.first["Name"] : to
     end
-    
+
 
     def bcc
       source["Bcc"]
@@ -122,9 +122,12 @@ module Postmark
       end
 
       def read
-        tempfile = MittTempfile.new(file_name, content_type)
-        tempfile.write(Base64.decode64(source["Content"]))
-        tempfile
+        @read ||= begin
+          tempfile = MittTempfile.new(file_name, content_type)
+          tempfile.write(Base64.decode64(source["Content"]))
+          tempfile.rewind
+          tempfile
+        end
       end
 
       def size
