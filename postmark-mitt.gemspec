@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     "lib/postmark_mitt.rb",
     "postmark-mitt.gemspec",
     "spec/fixtures/email.json",
+    "spec/fixtures/autoresponder.json",
     "spec/postmark/mitt_spec.rb",
     "spec/spec_helper.rb"
   ]
