@@ -146,6 +146,16 @@ describe Postmark::Mitt do
       it "should return the content if read" do
         attachment.read.read.should_not == ''
       end
+
+      it "should not blow up with a zero content length and no source" do
+        attachment = ::Postmark::Mitt::Attachment.new({"Name"=>"logo.gif",
+                                          "ContentType"=>"image/gif",
+                                          "ContentID"=>"logo.gif",
+                                          "ContentLength"=>0})
+        expect {
+          attachment.read.read
+        }.to_not raise_error
+      end
     end
 
     it "should have a size" do
