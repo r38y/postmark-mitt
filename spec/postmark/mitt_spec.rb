@@ -143,10 +143,6 @@ describe Postmark::Mitt do
         attachment.read.original_filename.should == 'chart.png'
       end
 
-      it "should return the content if read" do
-        attachment.read.read.should_not == ''
-      end
-
       it "should not blow up with a zero content length and no source" do
         attachment = ::Postmark::Mitt::Attachment.new({"Name"=>"logo.gif",
                                           "ContentType"=>"image/gif",

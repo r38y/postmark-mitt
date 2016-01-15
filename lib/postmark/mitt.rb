@@ -122,14 +122,11 @@ module Postmark
       end
 
       def read
-        @read ||= begin
-          tempfile = MittTempfile.new(file_name, content_type)
-          if size > 0
-            tempfile.write(Base64.decode64(source["Content"]))
-          end
-          tempfile.rewind
-          tempfile
+        tempfile = MittTempfile.new(file_name, content_type)
+        if size > 0
+          tempfile.write(Base64.decode64(source["Content"]))
         end
+        tempfile
       end
 
       def size
