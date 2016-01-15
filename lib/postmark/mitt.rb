@@ -133,7 +133,7 @@ module Postmark
       end
 
       def size
-        source["ContentLength"]
+        source["ContentLength"].to_i
       end
     end
 

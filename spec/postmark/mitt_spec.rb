@@ -156,6 +156,16 @@ describe Postmark::Mitt do
           attachment.read.read
         }.to_not raise_error
       end
+
+      it "should not blow up with a nil content length" do
+        attachment = ::Postmark::Mitt::Attachment.new({"Name"=>"logo.gif",
+                                          "ContentType"=>"image/gif",
+                                          "ContentID"=>"logo.gif",
+                                          "ContentLength"=>nil})
+        expect {
+          attachment.read.read
+        }.to_not raise_error
+      end
     end
 
     it "should have a size" do
