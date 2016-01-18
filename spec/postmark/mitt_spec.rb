@@ -168,4 +168,14 @@ describe Postmark::Mitt do
       attachment.size.should == 2000
     end
   end
+
+  describe "autoresponder" do
+    it "should not be an autoresponder" do
+      mitt.autoresponder?.should == false
+    end
+    it "should recognise an autoresponder" do
+      autoresponse = Postmark::Mitt.new(read_fixture('autoresponder.json'))
+      autoresponse.autoresponder?.should == true
+    end
+  end
 end
