@@ -168,4 +168,17 @@ describe Postmark::Mitt do
       attachment.size.should == 2000
     end
   end
+
+  describe ::Postmark::MittTempfile do
+    it "should not explode with path chars in the name" do
+      expect {
+        instance = ::Postmark::MittTempfile.new("file/with/../path", "text/csv")
+      }.to_not raise_error
+    end
+    
+    it "should escape path chars" do
+      instance = ::Postmark::MittTempfile.new("file/with/../path", "text/csv")
+      instance.path.should include("file-with-..-path")
+    end
+  end
 end
