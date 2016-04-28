@@ -151,6 +151,7 @@ module Postmark
 
   class MittTempfile < Tempfile
     def initialize(basename, content_type, tmpdir=Dir::tmpdir)
+      basename = basename.gsub(/[\/\\]/, "-")
       if Postmark.ruby19?
         super(basename, tmpdir, :encoding => 'ascii-8bit')
       else
