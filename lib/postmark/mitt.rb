@@ -39,6 +39,10 @@ module Postmark
       to_full.any? ? to_full.first["Email"] : to
     end
 
+    def inbound_hash
+      to_full.any? ? to_email.split("@").first : to
+    end
+
     def to_name
       to_full.any? ? to_full.first["Name"] : to
     end

@@ -29,6 +29,10 @@ describe Postmark::Mitt do
     mitt.to_email.should == "api-hash@inbound.postmarkapp.com"
   end
 
+  it "should pull out the to_inbound_hash" do
+    mitt.inbound_hash.should == "api-hash"
+  end
+
 
   it "should be from someone" do
     mitt.from.should == "Bob Bobson <bob@bob.com>"
@@ -175,7 +179,7 @@ describe Postmark::Mitt do
         instance = ::Postmark::MittTempfile.new("file/with/../path", "text/csv")
       }.to_not raise_error
     end
-    
+
     it "should escape path chars" do
       instance = ::Postmark::MittTempfile.new("file/with/../path", "text/csv")
       instance.path.should include("file-with-..-path")
