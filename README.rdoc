@@ -21,6 +21,7 @@ Postmark-mitt has been verified to work on Ruby Enterprise Edition 1.8.7, 1.9.2 
     email = Postmark::Mitt.new(request.body.read)
 
     email.to # "api-hash@inbound.postmarkapp.com"
+    email.inbound_hash # "api-hash"
     email.from # Bob Bobson <bob@bob.com>
     email.from_email # bob@bob.com
     email.text_body
