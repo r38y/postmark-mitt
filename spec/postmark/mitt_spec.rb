@@ -29,7 +29,6 @@ describe Postmark::Mitt do
     mitt.to_email.should == "api-hash@inbound.postmarkapp.com"
   end
 
-
   it "should be from someone" do
     mitt.from.should == "Bob Bobson <bob@bob.com>"
   end
@@ -84,6 +83,11 @@ describe Postmark::Mitt do
 
   it "should have headers" do
     mitt.headers["Date"].should =="Thu, 31 Mar 2011 12:01:17 -0400"
+  end
+
+  it "handles null headers" do
+    mitt.stub(:source).and_return({"Headers" => nil})
+    mitt.headers.should == {}
   end
 
   it "should have an attachment" do
@@ -172,10 +176,10 @@ describe Postmark::Mitt do
   describe ::Postmark::MittTempfile do
     it "should not explode with path chars in the name" do
       expect {
-        instance = ::Postmark::MittTempfile.new("file/with/../path", "text/csv")
+        ::Postmark::MittTempfile.new("file/with/../path", "text/csv")
       }.to_not raise_error
     end
-    
+
     it "should escape path chars" do
       instance = ::Postmark::MittTempfile.new("file/with/../path", "text/csv")
       instance.path.should include("file-with-..-path")
