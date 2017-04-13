@@ -89,7 +89,10 @@ module Postmark
     end
 
     def headers
-      @headers ||= source["Headers"].inject({}){|hash,obj| hash[obj["Name"]] = obj["Value"]; hash}
+      @headers ||= Array(source["Headers"]).inject({}){|hash,obj|
+        hash[obj["Name"]] = obj["Value"]
+        hash
+      }
     end
 
     def message_id
