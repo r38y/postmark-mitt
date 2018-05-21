@@ -80,6 +80,10 @@ module Postmark
       source["TextBody"]
     end
 
+    def stripped_text_reply
+      source["StrippedTextReply"]
+    end
+
     def mailbox_hash
       source["MailboxHash"]
     end

@@ -17,6 +17,10 @@ describe Postmark::Mitt do
     mitt.text_body.should == "\nThis is awesome!\n\n"
   end
 
+  it "should have a stripped_text_reply" do
+    mitt.stripped_text_reply.should == "This is awesome!"
+  end
+
   it "should be to someone" do
     mitt.to.should == "Api Hash <api-hash@inbound.postmarkapp.com>"
   end

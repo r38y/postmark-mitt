@@ -69,6 +69,7 @@
   "Subject": "Hi There",
   "Tag": "yourit",
   "TextBody": "\nThis is awesome!\n\n",
+  "StrippedTextReply": "This is awesome!",
   "To": "\"Api Hash\" <api-hash@inbound.postmarkapp.com>",
 	"ToFull": [
 		{
